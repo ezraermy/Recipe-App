@@ -49,6 +49,26 @@ class FoodsController < ApplicationController
           end
         end
       end
+
+     # Destroy action to delete a food item.
+     def destroy
+        @food.destroy
+    
+        respond_to do |format|
+          format.html { redirect_to foods_url, notice: 'Food was successfully destroyed.' }
+        end
+      end
+      private
+  
+     # Helper method to set the @food instance variable.
+     def set_food
+       @food = Food.find(params[:id])
+     end
+    
+     # Strong parameters to whitelist the allowed attributes for food creation and updates.
+     def food_params
+       params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
+     end
     
   end
   
