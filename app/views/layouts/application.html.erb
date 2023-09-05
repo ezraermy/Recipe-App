@@ -12,6 +12,11 @@
   </head>
   <body class="container">
   <%= render partial: "shared/navigation" %>
+    <% flash.each do |type, msg| %>
+      <div class="alert <%= flash_alert_class(type) %>">
+        <%= msg %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
