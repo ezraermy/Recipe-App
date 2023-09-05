@@ -25,6 +25,19 @@ class FoodsController < ApplicationController
       # Edit action to render a form for editing a food item.
       def edit
       end
+
+      # Create action to create a new food item.
+    def create
+        @food = Food.new(food_params)
+    
+        respond_to do |format|
+          if @food.save
+            format.html { redirect_to food_url(@food), notice: 'Food was successfully created!' }
+          else
+            format.html { render :new, status: :unprocessable_entity }
+          end
+        end
+      end
     
   end
   
