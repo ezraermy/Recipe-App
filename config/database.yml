@@ -10,7 +10,7 @@ development:
   database: recipe_app
   host: localhost
   username: postgres
-  password: Managua2023
+  password: ezraermi333
   port: 5432
 
 
@@ -20,7 +20,7 @@ test:
   database: recipe_app
   host: localhost
   username: postgres
-  password: Managua2023
+  password: ezraermi333
   port: 5432
 
 
