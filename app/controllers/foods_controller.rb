@@ -10,7 +10,7 @@ class FoodsController < ApplicationController
   def show; end
 
   # Custom action to generate a general shopping list summary.
-  def general_shopping_list
+  def general_shoping_list
     @foods = Food.all
     @food_items = @foods.length
     @price_sum = Food.sum(:price)
