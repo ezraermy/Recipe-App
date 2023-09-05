@@ -5,8 +5,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-   @recipe = Recipe.find_by(id: params[:id])
-   render 'show'
+    @recipe = Recipe.find_by(id: params[:id])
+    render 'show'
   end
 
   def new
@@ -26,9 +26,9 @@ class RecipesController < ApplicationController
     end
   end
 
-  def destroy 
-   recipe = Recipe.find_by(id: params[:id])
-   if recipe.destroy
+  def destroy
+    recipe = Recipe.find_by(id: params[:id])
+    if recipe.destroy
       flash[:success] = 'The recipe was deleted'
       redirect_to recipes_path
     else
