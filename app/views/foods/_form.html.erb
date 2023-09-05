@@ -18,7 +18,8 @@
 
   <div>
     <%= form.label :measurement_unit, style: "display: block" %>
-    <%= form.text_field :measurement_unit %>
+    <%= form.select :measurement_unit, %w[g kg ml l oz lb] %>
+      
   </div>
 
   <div>
