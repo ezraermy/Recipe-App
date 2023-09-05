@@ -28,23 +28,23 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
 
-    respond_to do |format|
-      if @food.save
-        format.html { redirect_to food_url(@food), notice: 'Food was successfully created!' }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @food.save
+      # Successful save
+      puts "Measurement unit received: #{params[:food]}"
+      redirect_to food_url(@food), notice: 'Food was successfully created!'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # Update action to update an existing food item.
   def update
-    respond_to do |format|
-      if @food.update(food_params)
-        format.html { redirect_to food_url(@food), notice: 'Food was successfully updated.' }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    if @food.update(food_params)
+      # Successful update
+      puts "Measurement unit received: #{params[:food]}"
+      redirect_to food_url(@food), notice: 'Food was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -52,9 +52,7 @@ class FoodsController < ApplicationController
   def destroy
     @food.destroy
 
-    respond_to do |format|
-      format.html { redirect_to foods_url, notice: 'Food was successfully destroyed.' }
-    end
+    redirect_to foods_url, notice: 'Food was successfully destroyed.'
   end
 
   private
