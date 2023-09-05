@@ -7,8 +7,7 @@ class FoodsController < ApplicationController
   end
 
   # Show action to display details of a specific food item.
-  def show
-  end
+  def show; end
 
   # Custom action to generate a general shopping list summary.
   def general_shopping_list
@@ -23,8 +22,7 @@ class FoodsController < ApplicationController
   end
 
   # Edit action to render a form for editing a food item.
-  def edit
-  end
+  def edit; end
 
   # Create action to create a new food item.
   def create
