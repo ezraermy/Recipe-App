@@ -3,11 +3,6 @@
   <p><%= @recipe.preparation_time%>hours</p>
   <p><%= @recipe.cooking_time%> hours</p>
   <pre><%= @recipe.description%></pre>
-  <%= form_with model: @recipe do |f| %>
-    <div class="form-check form-switch">
-      <%= f.check_box :public, class: "form-check-input", role: "switch", id: "visibilitySwitch", checked: @recipe.public, onchange: "this.form.submit();" %>
-      <%= f.label :public, class: "form-check-label", for: "visibilitySwitch" %>
-    </div>
-  <% end %>
+  <%= render 'shared/visibility_toggle', recipe: @recipe %>
   <%= render 'shared/delete_recipe', recipe: @recipe %>
 </div>

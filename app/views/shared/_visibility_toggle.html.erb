@@ -1,0 +1,8 @@
+<% if can? :manage, recipe %>
+  <%= form_with model: recipe do |f| %>
+    <div class="form-check form-switch">
+      <%= f.check_box :public, class: "form-check-input", role: "switch", id: "visibilitySwitch", checked: @recipe.public, onchange: "this.form.submit();" %>
+      <%= f.label :public, class: "form-check-label", for: "visibilitySwitch" %>
+    </div>
+  <% end %>
+<% end %>
