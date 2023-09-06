@@ -6,3 +6,9 @@
 .btn {
   z-index: 1800 !important;
 }
+
+.nav-link-hover:hover {
+  background-color: #c5c9ce;
+  color: #fff;
+  border-radius: 5px;
+}

@@ -1,6 +1,6 @@
-<%= form_with(model: food) do |form| %>
+<%= form_with(model: food, local: true, class: 'needs-validation', novalidate: true) do |form| %>
   <% if food.errors.any? %>
-    <div style="color: red">
+    <div class="alert alert-danger">
       <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
 
       <ul>
@@ -11,30 +11,29 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control', required: true %>
   </div>
 
-  <div>
-    <%= form.label :measurement_unit, style: "display: block" %>
-    <%= form.select :measurement_unit, %w[g kg ml l oz lb] %>
-      
+  <div class="mb-3">
+    <%= form.label :measurement_unit, class: 'form-label' %>
+    <%= form.select :measurement_unit, %w[g kg ml l oz lb], {}, class: 'form-select', required: true %>
   </div>
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+  <div class="mb-3">
+    <%= form.label :price, class: 'form-label' %>
+    <%= form.text_field :price, class: 'form-control', required: true %>
   </div>
 
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
-    <%= form.number_field :quantity %>
+  <div class="mb-3">
+    <%= form.label :quantity, class: 'form-label' %>
+    <%= form.number_field :quantity, class: 'form-control', required: true %>
   </div>
 
-    <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
 
-  <div class="button-form">
-    <%= form.submit %>
-  </div
+  <div class="mb-3">
+    <%= form.submit 'Create Food', class: 'btn btn-primary' %>
+  </div>
 <% end %>
