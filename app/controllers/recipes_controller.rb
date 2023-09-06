@@ -33,8 +33,22 @@ class RecipesController < ApplicationController
       redirect_to recipes_path
     else
       flash.now[:error] = 'Could not delete recipe, try again'
-      render :new, status: :unprocessable_entity
     end
+  end
+
+  def update
+    recipe = Recipe.find_by(id: params[:id])
+    if recipe.update_attribute(:public, !recipe.public)
+      flash[:success] = 'The visibility was changed sucsessfully'
+    else
+      flash.now[:error] = 'Could not change visibility, try again'
+    end
+    redirect_to recipe
+  end
+
+  def public_recipes
+    @public_recipes = Recipe.where(public: true).all
+    render 'public_recipes'
   end
 
   private
