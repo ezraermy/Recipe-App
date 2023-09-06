@@ -6,6 +6,6 @@
     </div>
   <% end %>
   <div class="text-center my-2">
-    <%= button_to "Delete post", recipe_path(recipe), method: :delete, class:'btn btn-sm btn-outline-danger'%>
+    <%= render 'shared/delete_recipe', recipe: recipe %>
   </div>
 </div>
