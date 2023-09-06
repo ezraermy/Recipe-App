@@ -1,6 +1,6 @@
 <div class='my-5 pt-5'>
   <h2 class='text-center'>Create new recipe</h2>
-  <%= form_with model: @new_recipe , url: recipes_path, method: :post, local: true, scope: :recipe do |f| %>
+  <%= form_with model: @new_recipe, url: recipes_path, method: :post, local: true, scope: :recipe do |f| %>
     <div class="row g-3">
       <div class="col-md-6 mb-3">
         <%= f.label :name, class: "form-label" %>
