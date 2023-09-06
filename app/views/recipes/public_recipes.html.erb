@@ -1,0 +1,4 @@
+<h1>Public Recipes</h1>
+<% @public_recipes.each do |recipe| %>
+  <%= render 'shared/recipe', recipe: recipe %>
+<%end%>

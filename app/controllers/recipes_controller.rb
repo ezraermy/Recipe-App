@@ -33,8 +33,12 @@ class RecipesController < ApplicationController
       redirect_to recipes_path
     else
       flash.now[:error] = 'Could not delete recipe, try again'
-      render :new, status: :unprocessable_entity
     end
+  end
+
+  def public_recipes
+  @public_recipes = Recipe.where(public: true).all
+  render 'public_recipes'
   end
 
   private
