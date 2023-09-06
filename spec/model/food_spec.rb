@@ -8,7 +8,7 @@ RSpec.describe Food, type: :model do
       name: 'Apple Pie',
       measurement_unit: 'g',
       price: 3.5,
-      quantity: 10,
+      quantity: 5,
       user_id: user1.id
     )
   end
@@ -25,7 +25,7 @@ RSpec.describe Food, type: :model do
   end
 
   it 'validates quantity to be 10' do
-    expect(subject.quantity).to eq(10)
+    expect(subject.quantity).to eq(5)
   end
 
   it 'validates that food price is a float' do
