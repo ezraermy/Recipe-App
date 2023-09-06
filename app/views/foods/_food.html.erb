@@ -8,10 +8,12 @@
   </td>
 
   <td>
-    <%= food.price %>
+    $<%= number_to_currency(food.price) %>
   </td>
   
   <td>
-    <button  data-confirm="Are you sure?" data-method="delete" onclick="window.location.href='/foods/<%= food.id %>'">Delete</button>
+    <button class="btn btn-danger" data-confirm="Are you sure?" data-method="delete" onclick="window.location.href='/foods/<%= food.id %>'">
+      Delete
+    </button>
   </td>
 </tr>
