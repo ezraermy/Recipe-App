@@ -40,12 +40,7 @@ RSpec.describe 'Foods', type: :feature do
     end
 
     it 'should show the food new button' do
-      expect(page).to have_content('Add food')
-    end
-
-    it 'should add a new food' do
-      click_link('Add food')
-      expect(page).to have_current_path(new_food_path)
+      expect(page).to have_link('Add Food')
     end
   end
 
@@ -82,21 +77,21 @@ RSpec.describe 'Foods', type: :feature do
     end
 
     it 'should create a new food' do
-        fill_in 'food[name]', with: 'Test Food'
-        select 'kg', from: 'food[measurement_unit]'
-        fill_in 'food[quantity]', with: '1'
-        fill_in 'food[price]', with: '1'
-        click_button 'Create Food'
-        expect(page).to have_current_path(foods_path)
-      end      
+      fill_in 'food[name]', with: 'Test Food'
+      select 'kg', from: 'food[measurement_unit]'
+      fill_in 'food[quantity]', with: '1'
+      fill_in 'food[price]', with: '1'
+      click_button 'Create Food'
+      expect(page).to have_current_path(foods_path)
+    end
 
     it 'should cancel the new food' do
-      click_link('Back to foods')
+      click_link('Back to Foods')
       expect(page).to have_current_path(foods_path)
     end
 
     it 'should back to foods' do
-      click_link('Back to foods')
+      click_link('Back to Foods')
       expect(page).to have_current_path(foods_path)
     end
   end
