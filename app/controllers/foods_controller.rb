@@ -5,6 +5,7 @@ class FoodsController < ApplicationController
   def index
     @foods = current_user.foods
   end
+
   # Show action to display details of a specific food item.
   def show; end
 
