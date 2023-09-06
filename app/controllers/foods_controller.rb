@@ -3,9 +3,8 @@ class FoodsController < ApplicationController
 
   # Index action to display a list of food items.
   def index
-    @foods = Food.includes(:user).all
+    @foods = current_user.foods
   end
-
   # Show action to display details of a specific food item.
   def show; end
 
