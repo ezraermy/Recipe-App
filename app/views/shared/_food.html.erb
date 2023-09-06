@@ -1,0 +1,19 @@
+<tr id="<%= dom_id food %>">
+  <td>
+    <%= food.name %>
+  </td>
+
+  <td>
+    <%= food.measurement_unit %>
+  </td>
+
+  <td>
+    <%= number_to_currency(food.price) %>
+  </td>
+  
+  <td>
+    <button class="btn btn-danger" data-confirm="Are you sure?" data-method="delete" onclick="window.location.href='/foods/<%= food.id %>'">
+      Delete
+    </button>
+  </td>
+</tr>
