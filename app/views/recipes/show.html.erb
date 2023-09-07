@@ -6,8 +6,9 @@
   </div>
   <div class="col-2 my-4">
     <%= render 'shared/visibility_toggle', recipe: @recipe%>
+    <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), class: 'btn btn-primary my-2' %>
   </div>
   <pre class="col-12"><%= @recipe.description%></pre>
   <%= render 'shared/delete_recipe', recipe: @recipe %>
-  <%= link_to "Add ingredient", new_food_path, class: 'btn btn-primary' %>
 </div>
+<%= render 'ingredients_table', recipe: @recipe, ingredients: @ingredients %>
