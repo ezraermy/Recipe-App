@@ -1,0 +1,30 @@
+<div class="card my-5">
+  <table class="table table-striped" id="foods">
+    <thead>
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Value</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% ingredients.each do |ingredient| %>
+        <tr id="<%= dom_id ingredient %>">
+          <td>
+            <%= ingredient.food.name %>
+          </td>
+          <td>
+            <%= "#{ingredient.quantity}  #{ingredient.food.measurement_unit}" %>
+          </td>
+          <td>
+            <%= number_to_currency(ingredient.food.price * ingredient.quantity) %>
+          </td>
+          <td>
+            <%= render 'delete_ingredient', ingredient: ingredient, recipe: recipe %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
