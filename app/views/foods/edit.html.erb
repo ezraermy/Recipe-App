@@ -1,0 +1,10 @@
+<h1>Edit Food</h1>
+
+<%= render "form", food: @food %>
+
+<br>
+
+<div class="btn-group">
+  <%= link_to "Show this food", @food, class: "btn btn-primary" %>
+  <%= link_to "Back to foods", foods_path, class: "btn btn-secondary" %>
+</div>

@@ -1,0 +1,6 @@
+<% @recipes.each do |recipe| %>
+  <%= render 'shared/recipe', recipe: recipe %>
+<%end%>
+<div class="text-center mt-5">
+  <%= link_to "Add a new recipe", new_recipe_path, class:'btn btn-primary' %>
+</div>

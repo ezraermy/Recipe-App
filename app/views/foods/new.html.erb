@@ -1,0 +1,8 @@
+<section>
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>New Food</h1>
+    <%= link_to "Back to Foods", foods_path, class: 'btn btn-secondary' %>
+  </div>
+
+  <%= render "form", food: @food %>
+</section>

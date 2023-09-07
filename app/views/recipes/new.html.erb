@@ -1,0 +1,30 @@
+<div class='my-5 pt-5'>
+  <h2 class='text-center'>Create new recipe</h2>
+  <%= form_with model: @new_recipe, url: recipes_path, method: :post, local: true, scope: :recipe do |f| %>
+    <div class="row g-3">
+      <div class="col-md-6 mb-3">
+        <%= f.label :name, class: "form-label" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="col-md-2 mb-3">
+        <%= f.label :preparation_time, class: "form-label" %>
+        <%= f.number_field :preparation_time, class: "form-control" %>
+      </div>
+      <div class="col-md-2 mb-3">
+        <%= f.label :cooking_time, class: "form-label" %>
+        <%= f.number_field :cooking_time, class: "form-control" %>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label class="form-label" for="visibility">Visibility Preference</label>
+        <%= f.select :public, [["Public", "true"], ["Private", "false"]], {}, class: "form-select", id: "visibility" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :description, class: "form-label" %>
+        <%= f.text_area :description, class: "form-control", size: "70x5" %>
+      </div>
+      <div class="text-center">
+        <%= f.submit 'Post recipe', class:"btn btn-primary mb-3" %>
+      </div>
+    </div>
+  <% end %>
+</div>

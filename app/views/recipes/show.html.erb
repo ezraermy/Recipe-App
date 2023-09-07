@@ -1,0 +1,14 @@
+<div class="row">
+  <h2 class="text-center col-12"><%= @recipe.name%></h2>
+  <div class="col-10 row my-4">
+    <h5>Preparation time:  <%= @recipe.preparation_time%> min</h5>
+    <h5>Cooking time: <%= @recipe.cooking_time%> min</h5>
+  </div>
+  <div class="col-2 my-4">
+    <%= render 'shared/visibility_toggle', recipe: @recipe%>
+    <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), class: 'btn btn-primary my-2' %>
+  </div>
+  <pre class="col-12"><%= @recipe.description%></pre>
+  <%= render 'shared/delete_recipe', recipe: @recipe %>
+</div>
+<%= render 'ingredients_table', recipe: @recipe, ingredients: @ingredients %>
