@@ -6,9 +6,12 @@
   </div>
   <div class="col-2 my-4">
     <%= render 'shared/visibility_toggle', recipe: @recipe%>
+  </div>
+  <p class="col-12 card p-3"><%= @recipe.description%></p>
+  <div class="col-12 d-flex justify-content-between">
+    <%= link_to "Generate shopping list", general_shoping_list_path, class: 'btn btn-primary my-2' %>
     <%= render 'add_ingredients', recipe: @recipe%>
   </div>
-  <pre class="col-12"><%= @recipe.description%></pre>
-  <%= render 'shared/delete_recipe', recipe: @recipe %>
 </div>
 <%= render 'ingredients_table', recipe: @recipe, ingredients: @ingredients %>
+<%= render 'shared/delete_recipe', recipe: @recipe %>
