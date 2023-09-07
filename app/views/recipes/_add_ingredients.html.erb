@@ -1,0 +1,3 @@
+<% if can? :manage, recipe %>
+  <%= link_to "Add ingredient", new_recipe_recipe_food_path(recipe), class: 'btn btn-primary my-2' %>
+<% end %>

@@ -8,6 +8,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by(id: params[:id])
+    @ingredients = @recipe.recipe_foods.includes(:food)
     render 'show'
   end
 

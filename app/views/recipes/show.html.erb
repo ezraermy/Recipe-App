@@ -1,8 +1,17 @@
-<div>
-  <h2><%= @recipe.name%></h2>
-  <p><%= @recipe.preparation_time%>hours</p>
-  <p><%= @recipe.cooking_time%> hours</p>
-  <pre><%= @recipe.description%></pre>
-  <%= render 'shared/visibility_toggle', recipe: @recipe %>
-  <%= render 'shared/delete_recipe', recipe: @recipe %>
+<div class="row">
+  <h2 class="text-center col-12"><%= @recipe.name%></h2>
+  <div class="col-10 row my-4">
+    <h5>Preparation time:  <%= @recipe.preparation_time%> min</h5>
+    <h5>Cooking time: <%= @recipe.cooking_time%> min</h5>
+  </div>
+  <div class="col-2 my-4">
+    <%= render 'shared/visibility_toggle', recipe: @recipe%>
+  </div>
+  <p class="col-12 card p-3"><%= @recipe.description%></p>
+  <div class="col-12 d-flex justify-content-between">
+    <%= link_to "Generate shopping list", general_shoping_list_path, class: 'btn btn-primary my-2' %>
+    <%= render 'add_ingredients', recipe: @recipe%>
+  </div>
 </div>
+<%= render 'ingredients_table', recipe: @recipe, ingredients: @ingredients %>
+<%= render 'shared/delete_recipe', recipe: @recipe %>

@@ -1,0 +1,23 @@
+<div class='my-5 pt-5'>
+  <h2 class='text-center'>Add ingredient to recipe</h2>
+  <%= form_with model: @new_ingredient, url: recipe_recipe_foods_path, method: :post, local: true, scope: :recipe_food do |f| %>
+    <div class="row g-3">
+      <div class="col-md-4 mb-3">
+        <label class="form-label">Recipe</label>
+        <input class="form-control" type="text" placeholder="<%= @recipe.name%>" disabled>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label class="form-label" for="food">Select food</label>
+        <% food_array = @foods.map { |food| ["#{food.name} #{food.measurement_unit} ", food.id] } %>
+        <%= f.select :food_id, food_array, {}, class: "form-select", id: "food" %>
+      </div>
+      <div class="col-md-2 mb-3">
+        <%= f.label :quantity, class: "form-label" %>
+        <%= f.number_field :quantity, class: "form-control" %>
+      </div>
+      <div class="text-center">
+        <%= f.submit 'Add ingredient', class:"btn btn-primary mb-3" %>
+      </div>
+    </div>
+  <% end %>
+</div>
