@@ -1,11 +1,11 @@
 <div class="card mx-auto my-3">
   <%= link_to recipe_path(recipe), class: "custom-link" do %>
-    <div class="card-body">
-      <h5 class="card-title"><%= recipe.name%> </h5>
-      <p class="card-text"><%= recipe.description%> </p>
+    <div class="card-body row">
+      <div class="text-center my-2 col-3">
+        <h5 class="card-title"><%= recipe.name%> </h5>
+        <%= render 'shared/delete_recipe', recipe: recipe %>
+      </div>
+      <p class="card-text col-9"><%= recipe.description%> </p>
     </div>
   <% end %>
-  <div class="text-center my-2">
-    <%= render 'shared/delete_recipe', recipe: recipe %>
-  </div>
 </div>
