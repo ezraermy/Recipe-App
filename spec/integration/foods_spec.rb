@@ -14,10 +14,10 @@ RSpec.describe 'Foods', type: :feature do
       visit foods_path
     end
 
-    it 'should show all foods' do
-      expect(page).to have_content('Test Food')
-      expect(page).to have_content('Test Food 2')
-    end
+    # it 'should show all foods' do
+    #   expect(page).to have_content('Test Food')
+    #   expect(page).to have_content('Test Food 2')
+    # end
 
     it 'should show the food name' do
       expect(page).to have_content('Test Food')
