@@ -1,4 +1,3 @@
-
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -10,9 +9,8 @@ development:
   database: recipe_app
   host: localhost
   username: postgres
-  password: ezraermi333
+  password: Managua2023
   port: 5432
-
 
 test:
   <<: *default
@@ -20,9 +18,8 @@ test:
   database: recipe_app
   host: localhost
   username: postgres
-  password: ezraermi333
+  password: Managua2023
   port: 5432
-
 
 production:
   <<: *default
