@@ -31,7 +31,7 @@ class FoodsController < ApplicationController
     if @food.save
       # Successful save
       puts "Measurement unit received: #{params[:food]}"
-      redirect_to food_url(@food), notice: 'Food was successfully created!'
+      redirect_to foods_path, notice: 'Food was successfully created!'
     else
       render :new, status: :unprocessable_entity
     end
@@ -52,7 +52,7 @@ class FoodsController < ApplicationController
   def destroy
     @food.destroy
 
-    redirect_to foods_url, notice: 'Food was successfully destroyed.'
+    redirect_to foods_url, notice: 'Food was successfully deleted.'
   end
 
   private
