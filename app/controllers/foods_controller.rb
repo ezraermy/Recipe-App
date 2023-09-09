@@ -26,8 +26,8 @@ class FoodsController < ApplicationController
 
   # Create action to create a new food item.
   def create
-    @food = Food.new(food_params)
-
+    @food = Food.new(user: current_user)
+    @food.assign_attributes(food_params)
     if @food.save
       # Successful save
       puts "Measurement unit received: #{params[:food]}"
@@ -64,6 +64,6 @@ class FoodsController < ApplicationController
 
   # Strong parameters to whitelist the allowed attributes for food creation and updates.
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end
 end
